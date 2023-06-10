@@ -159,7 +159,7 @@ const CarouselItem = () => {
         }
       >
         {items.map((item, index) => (
-          <div key={index} className="p-4 bg-white rounded-lg shadow-md">
+          <div key={index} className="p-4 bg-white rounded-lg shadow-md ">
             <button className="absolute top-[30px] right-[40px] bg-transparent border-none focus:outline-none">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
                 <HeartIcon

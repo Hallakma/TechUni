@@ -47,7 +47,7 @@ const BestSellers = () => {
     <div>
       <div className="mx-auto max-w-screen-2xl px-4 py-16 ">
         <div className="mx-auto flex  pb-10 pt-28 justify-between">
-          <h1 className="text-[#11142D] text-[48px] ">Best Seller</h1>
+          <h1 className="text-[#11142D] text-[48px] ">Related Items</h1>
         </div>
         <div className="grid grid-cols-1 gap-x-0 gap-y-4 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-0">
           {items.map((item, index) => (

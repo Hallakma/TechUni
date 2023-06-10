@@ -1,6 +1,6 @@
 import React from "react";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/20/solid";
-const pages = [{ name: "Shop", href: "/shop", current: false }];
+const pages = [{ name: "Shopping Bag", href: "/cart", current: false }];
 const ShopHero = () => {
   return (
     <div className="mx-auto max-w-screen-2xl">
@@ -41,10 +41,10 @@ const ShopHero = () => {
               </nav>
             </div>
             <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Shop
+              Shopping Bag
             </h1>
           </div>
-          <div className="mt-2 sm:mt-24 lg:mt-0 lg:flex-shrink-0 h-[400px] w-[1024px] bg-black">
+          <div className="max-md:hidden mt-2 sm:mt-24 lg:mt-0 lg:flex-shrink-0 h-[400px] w-[1024px] bg-black">
             <img
               className="bg-black h-[400px] w-[1024px] object-cover "
               alt=""

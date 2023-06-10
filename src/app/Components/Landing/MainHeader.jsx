@@ -10,9 +10,10 @@ import {
 import Image from "next/image";
 import logoCompany from "../../../../public/logoCompany.png";
 import PhoneIcon from "../../../../public/Icons/phoneIcon.png";
+import Link from "next/link";
 
 const navigation = [
-  { name: "Home", href: "#" },
+  { name: "Home", href: "/" },
   { name: "About", href: "#" },
   { name: "FAQ", href: "#" },
   { name: "Blog", href: "#" },
@@ -55,13 +56,13 @@ const MainHeader = () => {
             <Image width={166.58} height={32.63} src={logoCompany} alt="" />
           </div>
           <div className=" lg:flex lg:flex-1 lg:justify-end hidden   ">
-            <div className="w-[40px] h-[40px] rounded-full border-2 border-black flex justify-center items-center text-black mr-3">
+            <div className="w-[40px] h-[40px] rounded-full border-2 border-black flex justify-center items-center text-black mr-6">
               <p>Fb</p>
             </div>
-            <div className="w-[40px] h-[40px] rounded-full border-2 border-black flex justify-center items-center text-black mr-3">
+            <div className="w-[40px] h-[40px] rounded-full border-2 border-black flex justify-center items-center text-black mr-6">
               <p>Tw</p>
             </div>
-            <div className="w-[40px] h-[40px] rounded-full border-2 border-black flex justify-center items-center text-black mr-3">
+            <div className="w-[40px] h-[40px] rounded-full border-2 border-black flex justify-center items-center text-black mr-6">
               <p>Ig</p>
             </div>
             <div className="w-[40px] h-[40px] rounded-full border-2 border-black flex justify-center items-center text-black ">
@@ -101,10 +102,13 @@ const MainHeader = () => {
                     3
                   </p>
                 </div>
-                <ShoppingCartIcon
-                  className=" h-[25.33px] w-[24.43px] text-black mr-10"
-                  aria-hidden="true"
-                />
+                <Link href="/cart">
+                  {" "}
+                  <ShoppingCartIcon
+                    className=" h-[25.33px] w-[24.43px] text-black mr-10"
+                    aria-hidden="true"
+                  />
+                </Link>
               </div>
             </div>
 
@@ -122,11 +126,6 @@ const MainHeader = () => {
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
-                />
               </a>
               <button
                 type="button"

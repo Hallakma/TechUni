@@ -37,13 +37,14 @@ export default function About() {
       {!filter ? (
         <div>
           {" "}
-          <ShopItems FilterClicked={() => FilterClicked()} /> <SaleBanner />
-          <Recommended />{" "}
+          <ShopItems
+            FilterClicked={() => FilterClicked()}
+          /> <SaleBanner />{" "}
         </div>
       ) : (
         <FilterPage />
       )}
-
+      <Recommended />
       <Footer />
     </div>
   );
