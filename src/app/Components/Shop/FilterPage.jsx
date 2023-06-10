@@ -28,17 +28,14 @@ const filters = [
     id: "category",
     name: "Category",
     options: [
-      { value: "Dresses", label: "Dresses", checked: false },
-      { value: "Shirt and Top", label: "Shirt and Top", checked: false },
+      { value: "electronics", label: "electronics", checked: false },
+      { value: "jewelery", label: "jewelery", checked: false },
       {
-        value: "Sweater & Cardigans",
-        label: "Sweater & Cardigans",
+        value: "men's clothing",
+        label: "men's clothing",
         checked: true,
       },
-      { value: "Outwears", label: "Outwears", checked: false },
-      { value: "Bags", label: "Bags", checked: false },
-      { value: "Shoes", label: "Shoes", checked: false },
-      { value: "Accessories", label: "Accessories", checked: false },
+      { value: "women's clothing", label: "women's clothing", checked: false },
     ],
   },
 ];
@@ -68,7 +65,8 @@ export default function Example() {
   const [isLoading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  //Search States
+  const [selectedCategory, setSelectedCategory] = useState("");
+  //Search useEffect
   useEffect(() => {
     const results = products.filter((product) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -90,7 +88,6 @@ export default function Example() {
         setLoading(false);
       });
   }, []);
-  //Use effect for Search
 
   // ---------------------------
   const SortDesc = () => {
@@ -103,6 +100,16 @@ export default function Example() {
     fetch("https://fakestoreapi.com/products?sort=asc")
       .then((res) => res.json())
       .then((json) => setProducts(json));
+  };
+  // --------------------
+  const fetchProductsByCategory = (category) => {
+    fetch(`https://fakestoreapi.com/products/category/${category}`)
+      .then((res) => res.json())
+      .then((json) => setProducts(json));
+  };
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    fetchProductsByCategory(category);
   };
 
   if (isLoading) return <p>Loading...</p>;
@@ -284,6 +291,9 @@ export default function Example() {
                                     />
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                      onClick={() =>
+                                        handleCategoryClick(option.label)
+                                      }
                                       className="ml-3 min-w-0 flex-1 text-gray-500"
                                     >
                                       {option.label}
@@ -436,8 +446,11 @@ export default function Example() {
                                     {option.label ? (
                                       <div className="pb-4">
                                         <label
+                                          onClick={() =>
+                                            handleCategoryClick(option.label)
+                                          }
                                           htmlFor={`filter-${section.id}-${optionIdx}`}
-                                          className="ml-3 text-[16px] text-[#11142D] flex justify-between w-full"
+                                          className="ml-3 text-[16px] text-[#11142D] flex justify-between w-full cursor-pointer"
                                         >
                                           {option.label}
                                           <ChevronRightIcon className="w-5 h-5 text-[#11142D]"></ChevronRightIcon>
