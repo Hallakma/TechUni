@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import logoCompany from "../../../../public/logoCompany.png";
+import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/20/solid";
 
 const footerNavigation = {
   Socials: [
@@ -10,9 +11,21 @@ const footerNavigation = {
     { name: "Youtube", href: "#" },
   ],
   legal: [
-    { name: "8819 Ohio St. South Gate,California 90280", href: "#" },
-    { name: "ourstudio@hello.com", href: "#" },
-    { name: "+271 386-647-3637", href: "#" },
+    {
+      name: "8819 Ohio St. South Gate,California 90280",
+      href: "#",
+      icon: <MapPinIcon className="w-5 h-5 text-white" />,
+    },
+    {
+      name: "ourstudio@hello.com",
+      href: "#",
+      icon: <EnvelopeIcon className="w-5 h-5 text-white" />,
+    },
+    {
+      name: "+271 386-647-3637",
+      href: "#",
+      icon: <PhoneIcon className="w-5 h-5 text-white" />,
+    },
   ],
   social: [
     {
@@ -132,8 +145,9 @@ const Footer = () => {
                       <li key={item.name}>
                         <a
                           href={item.href}
-                          className="text-sm leading-6 text-gray-300 hover:text-white"
+                          className="text-sm leading-6 text-gray-300 hover:text-white flex items-center "
                         >
+                          <span className="mr-2">{item.icon}</span>
                           {item.name}
                         </a>
                       </li>
