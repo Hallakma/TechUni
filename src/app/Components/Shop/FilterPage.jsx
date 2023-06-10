@@ -15,14 +15,6 @@ import {
 } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
-const subCategories = [
-  { name: "Totes", href: "#" },
-  { name: "Backpacks", href: "#" },
-  { name: "Travel Bags", href: "#" },
-  { name: "Hip Bags", href: "#" },
-  { name: "Laptop Sleeves", href: "#" },
-];
-
 const filters = [
   {
     id: "category",
@@ -281,14 +273,6 @@ export default function Example() {
                                     key={option.value}
                                     className="flex items-center"
                                   >
-                                    <input
-                                      id={`filter-mobile-${section.id}-${optionIdx}`}
-                                      name={`${section.id}[]`}
-                                      defaultValue={option.value}
-                                      type="checkbox"
-                                      defaultChecked={option.checked}
-                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                    />
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
                                       onClick={() =>
